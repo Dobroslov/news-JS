@@ -1,3 +1,6 @@
+export interface Options {
+    [key: string]: string;
+}
 export interface IDataSources {
     id: string;
     name: string;
@@ -29,4 +32,7 @@ export interface IDataNews {
 }
 
 export type ElemNull = Element | null;
+
 export type TempElemNull = HTMLTemplateElement | null;
+
+export type HTMLElemNull = HTMLElement | null;

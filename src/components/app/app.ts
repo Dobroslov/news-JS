@@ -15,11 +15,11 @@ class App {
         const sourcesElement: TempElemNull = document.querySelector('.sources');
         if (sourcesElement) {
             sourcesElement.addEventListener('click', (e: Event) =>
-                this.controller.getNews(e, (data: IDataResponseNews) => this.view.drawNews(data))
+                this.controller.getNews(e, (data): void => this.view.drawNews(<IDataResponseNews>data))
             );
         }
 
-        this.controller.getSources((data: IDataResponseSources) => this.view.drawSources(data));
+        this.controller.getSources((data): void => this.view.drawSources(<IDataResponseSources>data));
     }
 }
 
