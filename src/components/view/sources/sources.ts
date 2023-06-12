@@ -1,30 +1,32 @@
-import { Source } from '../../../types';
 import './sources.css';
+import { ElemNull, DataSources, TempElemNull } from '../../../types';
 
 class Sources {
-    draw(data: Source[]): void {
+    draw(data: DataSources[]) {
         const fragment: DocumentFragment = document.createDocumentFragment();
-        const sourceItemTemp: HTMLTemplateElement | null = document.querySelector('#sourceItemTemp');
+        const sourceItemTemp: TempElemNull = document.querySelector('#sourceItemTemp');
+
         if (sourceItemTemp) {
             data.forEach((item) => {
-                const sourceClone: Node | DocumentFragment = sourceItemTemp.content.cloneNode(true);
-                if (sourceClone instanceof DocumentFragment) {
-                    const sourceItemName: Element | null = sourceClone.querySelector('.sourceitem-name');
-                    if (sourceItemName) {
-                        sourceItemName.textContent = item.name;
+                const sourceItemClone: Node | DocumentFragment = sourceItemTemp.content.cloneNode(true);
+
+                if (sourceItemClone instanceof DocumentFragment) {
+                    const elementItemName: Element | null = sourceItemClone.querySelector('.source__item-name');
+                    if (elementItemName) {
+                        elementItemName.textContent = item.name;
                     }
-                    const sourceItem: Element | null = sourceClone.querySelector('.sourceitem');
-                    if (sourceItem) {
-                        sourceItem.setAttribute('data-source-id', item.id);
+                    const elementItem: ElemNull = sourceItemClone.querySelector('.source__item');
+                    if (elementItem) {
+                        elementItem.setAttribute('data-source-id', item.id);
                     }
                 }
 
-                fragment.append(sourceClone);
+                fragment.append(sourceItemClone);
             });
         }
-        const sourcesContainer = document.querySelector('.sources');
-        if (sourcesContainer) {
-            sourcesContainer.append(fragment);
+        const sourceContainer: ElemNull = document.querySelector('.sources');
+        if (sourceContainer) {
+            sourceContainer.append(fragment);
         }
     }
 }

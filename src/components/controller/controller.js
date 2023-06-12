@@ -2,7 +2,6 @@ import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
     getSources(callback) {
-        console.log('file: controller.js:5 ~ AppController ~ getSources ~ callback:', callback);
         super.getResp(
             {
                 endpoint: 'sources',
