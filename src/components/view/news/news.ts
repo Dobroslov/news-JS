@@ -1,10 +1,9 @@
-import { DataNews, ElemNull, TempElemNull } from '../../../types';
+import { IDataNews, ElemNull, TempElemNull } from '../../../types';
 import './news.css';
 
 class News {
-    draw(data: DataNews[]): void {
-        console.log('file: news.ts:6 ~ News ~ draw ~ data:', data);
-        const news: DataNews[] = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
+    draw(data: IDataNews[]): void {
+        const news: IDataNews[] = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 
         const fragment: DocumentFragment = document.createDocumentFragment();
         const newsItemTemp: TempElemNull = document.querySelector('#newsItemTemp');

@@ -1,23 +1,26 @@
-export interface DataSources {
+export interface IDataSources {
     id: string;
     name: string;
-    // description: string;
-    // url: string;
-    // category: string;
-    // language: string;
-    // country: string;
 }
 
-export interface SorcesNews {
+export interface IDataResponseNews {
     status: string;
-    sources: Array<DataSources>;
+    totalResults: number;
+    articles: IDataNews[];
 }
-export interface DataNews {
+
+export interface IDataResponseSources {
+    status: string;
+    totalResults: number;
+    sources: IDataSources[];
+}
+
+export interface IDataNews {
     author: string;
     content: string;
     description: string;
     publishedAt: string;
-    source: DataSources;
+    source: IDataSources;
     id: string;
     name: string;
     title: string;
