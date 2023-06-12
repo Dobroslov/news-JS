@@ -1,5 +1,9 @@
+// type CallbackType<T> = T extends articles ? (data: articles) => void : (data: sources) => void;
+
 class Loader {
-    constructor(baseLink, options) {
+    baseLink: string;
+    options: Record<string, string>;
+    constructor(baseLink: string, options: Record<string, string>) {
         this.baseLink = baseLink;
         this.options = options;
     }
